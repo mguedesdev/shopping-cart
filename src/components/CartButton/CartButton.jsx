@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { BsCartFill } from 'react-icons/bs';
 
 import './CartButton.css';
+import AppContext from '../../context/AppContext';
 
 const CartButton = () => {
-  const [number, setNumber] = useState(0);
+  const { cartItems } = useContext(AppContext);
   return (
-    <button type="button" className="cart__button" onClick={() => setNumber(number+1)}>
+    <button type="button" className="cart__button">
       <BsCartFill/>
-      <span className="cart-status">{number}</span>
+      <span className="cart-status">{cartItems.length}</span>
     </button>
     
   );

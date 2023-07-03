@@ -6,15 +6,18 @@ import fetchProducts from '../../api/fetchProducts';
 import AppContext from '../../context/AppContext';
 
 const SearchBar = () => {
-  const { setProducts } = useContext(AppContext);
+  const { setProducts, setLoading } = useContext(AppContext);
 
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const products = await fetchProducts(searchValue);
     setSearchValue('');
     setProducts(products);
+    setLoading(false);
+
   };
 
   return (

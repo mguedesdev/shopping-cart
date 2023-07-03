@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import './Products.css';
 import fetchProducts from '../../api/fetchProducts';
@@ -7,8 +7,7 @@ import Loading from '../Loading/Loading';
 import AppContext from '../../context/AppContext';
 
 const Products = () => {
-  const [loading, setLoading] = useState(true);
-  const {products, setProducts} = useContext(AppContext);
+  const {products, setProducts, loading, setLoading} = useContext(AppContext);
 
   useEffect(() =>{
 
