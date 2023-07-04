@@ -7,7 +7,13 @@ const Provider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [itemBeingRemoved, setItemBeingRemoved] = useState(null);
 
+  const handleRemoveItem = (id) => {
+    const updatedItems = cartItems.filter((cartItem) => id !== cartItem.id);
+    setCartItems(updatedItems);
+  };
 
   const value = {
     products,
@@ -18,6 +24,11 @@ const Provider = ({ children }) => {
     setCartItems,
     isCartVisible,
     setIsCartVisible,
+    showAlert,
+    setShowAlert,
+    itemBeingRemoved,
+    setItemBeingRemoved,
+    handleRemoveItem,
   };
 
   return (

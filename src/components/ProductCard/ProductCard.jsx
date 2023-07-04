@@ -8,10 +8,20 @@ import AppContext from '../../context/AppContext';
 
 const ProductCard = ({data}) => {
 
-  const {thumbnail, price, title } = data;
-  const {cartItems, setCartItems} = useContext(AppContext);
+  const { thumbnail, price, title, id } = data;
+  const { cartItems, setCartItems } = useContext(AppContext);
 
-  const handleAddCart = () =>  setCartItems([...cartItems, data]);
+  const handleAddCart = () => {
+    const existingCartItemIndex = cartItems.findIndex(item => item.id === id);
+
+    if (existingCartItemIndex > -1) {
+      const newCartItems = [...cartItems];
+      newCartItems[existingCartItemIndex].quantity += 1;
+      setCartItems(newCartItems);
+    } else {
+      setCartItems([...cartItems, { ...data, quantity: 1 }]);
+    }
+  };
 
   return (
     <section className="product-card">

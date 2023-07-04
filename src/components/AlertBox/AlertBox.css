@@ -1,0 +1,54 @@
+.alertBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.container-alertBox {
+  padding: 10px;
+  width: 30%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  
+}
+
+.content-alert{
+  margin: 40px 0;
+}
+
+.container-alertBox > div {
+  display: flex;
+  width: 100%;
+
+}
+
+.button--alert {
+  padding: 10px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  flex: 1;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+
+}
+
+.button--alert:nth-child(1) {
+  background-color: rgb(141, 100, 244);
+  color: white;
+
+}
